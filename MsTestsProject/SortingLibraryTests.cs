@@ -182,5 +182,293 @@ namespace MsTestsProject
             // Assert
             CollectionAssert.AreEqual(expectedResult, testArray);
         }
+
+        [TestMethod]
+        public void SelectionSortCanSortRandomArray()
+        {
+            // Assemble
+            int[] testArray = { 7, 2, 8, 3, 1, 12, 15 };
+            int[] expectedResult = { 1, 2, 3, 7, 8, 12, 15 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+
+        [TestMethod]
+        public void SelectionSortCanSortReverseSortedArray()
+        {
+            // Assemble
+            int[] testArray = { 5, 4, 3, 2, 1 };
+            int[] expectedResult = { 1, 2, 3, 4, 5 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void SelectionSortCanSortAlreadySortedArray()
+        {
+            // Assemble
+            int[] testArray = { 1, 2, 3, 4, 5 };
+            int[] expectedResult = { 1, 2, 3, 4, 5 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void SelectionSortCanSortArrayWithNegativeNumbers()
+        {
+            // Assemble
+            int[] testArray = { -10, 3, 1, -2, 4 };
+            int[] expectedResult = { -10, -2, 1, 3, 4 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void SelectionSortCanSortArrayWithDuplicateNumbers()
+        {
+            // Assemble
+            int[] testArray = { 3, 2, 4, 2, 3, 1 };
+            int[] expectedResult = { 1, 2, 2, 3, 3, 4 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void SelectionSortCanSortArrayWithEarlyUnsortedItem()
+        {
+            // Assemble
+            int[] testArray = { 3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            int[] expectedResult = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void SelectionSortCanSortArrayWithLargeDataset()
+        {
+            // Assemble
+            int[] testArray = GenerateDescending(1000);
+            int[] expectedResult = GenerateAscending(1000);
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void SelectionSortCanSortSingleElementArray()
+        {
+            // Assemble
+            int[] testArray = { 42 };
+            int[] expectedResult = { 42 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void SelectionSortCanSortArrayWithAllIdenticalElements()
+        {
+            // Assemble
+            int[] testArray = { 5, 5, 5, 5, 5 };
+            int[] expectedResult = { 5, 5, 5, 5, 5 };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void SelectionSortCanSortEmptyArray()
+        {
+            // Assemble
+            int[] testArray = { };
+            int[] expectedResult = { };
+
+            // Act
+            Sorter<int>.SelectionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void InsertionSortCanSortRandomArray()
+        {
+            // Assemble
+            int[] testArray = { 7, 2, 8, 3, 1, 12, 15 };
+            int[] expectedResult = { 1, 2, 3, 7, 8, 12, 15 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+
+        [TestMethod]
+        public void InsertionSortCanSortReverseSortedArray()
+        {
+            // Assemble
+            int[] testArray = { 5, 4, 3, 2, 1 };
+            int[] expectedResult = { 1, 2, 3, 4, 5 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void InsertionSortCanSortAlreadySortedArray()
+        {
+            // Assemble
+            int[] testArray = { 1, 2, 3, 4, 5 };
+            int[] expectedResult = { 1, 2, 3, 4, 5 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void InsertionSortCanSortArrayWithNegativeNumbers()
+        {
+            // Assemble
+            int[] testArray = { -10, 3, 1, -2, 4 };
+            int[] expectedResult = { -10, -2, 1, 3, 4 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void InsertionSortCanSortArrayWithDuplicateNumbers()
+        {
+            // Assemble
+            int[] testArray = { 3, 2, 4, 2, 3, 1 };
+            int[] expectedResult = { 1, 2, 2, 3, 3, 4 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void InsertionSortCanSortArrayWithEarlyUnsortedItem()
+        {
+            // Assemble
+            int[] testArray = { 3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            int[] expectedResult = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        public void InsertionSortCanSortArrayWithLargeDataset()
+        {
+            // Assemble
+            int[] testArray = GenerateDescending(1000);
+            int[] expectedResult = GenerateAscending(1000);
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void InsertionSortCanSortSingleElementArray()
+        {
+            // Assemble
+            int[] testArray = { 42 };
+            int[] expectedResult = { 42 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void InsertionSortCanSortArrayWithAllIdenticalElements()
+        {
+            // Assemble
+            int[] testArray = { 5, 5, 5, 5, 5 };
+            int[] expectedResult = { 5, 5, 5, 5, 5 };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void InsertionSortCanSortEmptyArray()
+        {
+            // Assemble
+            int[] testArray = { };
+            int[] expectedResult = { };
+
+            // Act
+            Sorter<int>.InsertionSort(testArray);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedResult, testArray);
+        }
     }
 }
