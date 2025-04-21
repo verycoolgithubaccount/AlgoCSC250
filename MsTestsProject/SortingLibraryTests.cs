@@ -470,5 +470,323 @@ namespace MsTestsProject
             // Assert
             CollectionAssert.AreEqual(expectedResult, testArray);
         }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanInsertToMiddle()
+        {
+            // Assemble
+            int[] arrayOne = { 1, 3 };
+            int[] arrayTwo = { 2 };
+            double expectedResult = 2;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanAppendToEnd()
+        {
+            // Assemble
+            int[] arrayOne = { 3, 4 };
+            int[] arrayTwo = { 5 };
+            double expectedResult = 4;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanPrependToBeginning()
+        {
+            // Assemble
+            int[] arrayOne = { 4, 6 };
+            int[] arrayTwo = { 2 };
+            double expectedResult = 4;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanSortLargerArrays()
+        {
+            // Assemble
+            int[] arrayOne = { 1, 2, 3, 8, 9, 10, 11 };
+            int[] arrayTwo = { 4, 5, 6, 7 };
+            double expectedResult = 6;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanSortEvenLengthArrays()
+        {
+            // Assemble
+            int[] arrayOne = { 1, 2 };
+            int[] arrayTwo = { 3, 4 };
+            double expectedResult = 2.5;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanSortArraysWithDuplicates()
+        {
+            // Assemble
+            int[] arrayOne = { 1, 2, 3, 3 };
+            int[] arrayTwo = { 3, 4 };
+            double expectedResult = 3;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void FindMedianSortedArraysCanInsertArrayTwoIntoArrayOne()
+        {
+            // Assemble
+            int[] arrayOne = { 0, 0, 0, 0, 0 };
+            int[] arrayTwo = { -1, 0, 0, 0, 0, 0, 1 };
+            double expectedResult = 0;
+
+            // Act
+            double realResult = Sorter<int>.FindMedianSortedArrays(arrayOne, arrayTwo);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchCanFindInBasicArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int target = 3;
+            int expectedResult = 2;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchCanFindInArrayWithNegatives()
+        {
+            // Assemble
+            int[] array = { -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0 };
+            int target = -3;
+            int expectedResult = 7;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchCanFindItemAtFirstIndexInEvenArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6 };
+            int target = 1;
+            int expectedResult = 0;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchCanFindItemAtFirstIndexInUnevenArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+            int target = 1;
+            int expectedResult = 0;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchCanFindItemAtLastIndexInEvenArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6 };
+            int target = 6;
+            int expectedResult = 5;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchCanFindItemAtLastIndexInUnevenArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+            int target = 7;
+            int expectedResult = 6;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchReturnsNegativeWhenItemOverArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+            int target = 8;
+            int expectedResult = -1;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchReturnsNegativeWhenItemUnderArray()
+        {
+            // Assemble
+            int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+            int target = 0;
+            int expectedResult = -1;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchReturnsNegativeWhenArrayIsEmpty()
+        {
+            // Assemble
+            int[] array = { };
+            int target = 40;
+            int expectedResult = -1;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchWorksWithArrayLengthOne()
+        {
+            // Assemble
+            int[] array = { 5 };
+            int target = 5;
+            int expectedResult = 0;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchWorksWithArrayWithGaps()
+        {
+            // Assemble
+            int[] array = { -20, -17, -16, -15, -10, 0, 1, 3, 8, 9, 11 };
+            int target = 8;
+            int expectedResult = 8;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        public void BinarySearchWorksWithDuplicates()
+        {
+            // Assemble
+            int[] array = { 1, 1, 2, 3, 5, 8, 13 };
+            int target = 1;
+            int expectedResult = 1;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void BinarySearchCanFindInLargeArray()
+        {
+            // Assemble
+            int[] array = Enumerable.Range(1, 100000).ToArray(); // 1 to 100,000
+            int target = 54321;
+            int expectedResult = 54320; // zero-based index
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
+        [TestMethod]
+        // This test was acquired through ChatGPT
+        public void BinarySearchFindsMiddleElement()
+        {
+            // Assemble
+            int[] array = { 10, 20, 30, 40, 50 };
+            int target = 30;
+            int expectedResult = 2;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
     }
 }
