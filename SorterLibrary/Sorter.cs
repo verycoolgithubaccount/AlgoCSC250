@@ -131,13 +131,17 @@ namespace SorterLibrary
         public static int BinarySearch(T[] arr, T item)
         {
             // return -1 if there are no items
-            if (arr.Length == 0) return -1;
+            if (arr == null || arr.Length == 0) return -1;
             // perform recursive search
             return BinarySearchRecursive(ref arr, ref item, 0, arr.Length);
         }
 
         private static int BinarySearchRecursive(ref T[] arr, ref T item, int min, int max)
         {
+            // return -1 if min is greater than max
+            // this can happen when searching for an missing item in the middle of the array
+            if (min > max) return -1;
+
             // set the middle index to the index between the min and max
             int middleIndex = ((max - min) / 2) + min;
 
@@ -149,7 +153,7 @@ namespace SorterLibrary
                 // if mid index is the end of the array, return -1
                 if (middleIndex + 1 == arr.Length) return -1;
                 // otherwise run again with mid index as the new min
-                return BinarySearchRecursive(ref arr, ref item, middleIndex, max);
+                return BinarySearchRecursive(ref arr, ref item, middleIndex + 1, max);
             }
             // else
             else
@@ -157,7 +161,7 @@ namespace SorterLibrary
                 // if mid index is 0, return -1
                 if (middleIndex == 0) return -1;
                 // otherwise run again with mid index as the new max
-                return BinarySearchRecursive(ref arr, ref item, min, middleIndex);
+                return BinarySearchRecursive(ref arr, ref item, min, middleIndex - 1);
             }
         }
 

@@ -788,5 +788,20 @@ namespace MsTestsProject
             Assert.AreEqual(expectedResult, realResult);
         }
 
+        [TestMethod]
+        public void BinarySearchReturnsNegativeForMissingItemInMiddle()
+        {
+            // Assemble
+            int[] array = { 10, 20, 30, 40, 50 };
+            int target = 31;
+            int expectedResult = -1;
+
+            // Act
+            int realResult = Sorter<int>.BinarySearch(array, target);
+
+            // Assert
+            Assert.AreEqual(expectedResult, realResult);
+        }
+
     }
 }
